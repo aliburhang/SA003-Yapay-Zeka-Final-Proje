@@ -1,0 +1,18 @@
+[0] Config.pm:307> INFO - This is Biber 2.17
+[0] Config.pm:310> INFO - Logfile is 'run.blg'
+[58] biber-darwin:340> INFO - === Sun Mar  3, 2024, 04:09:08
+[70] Biber.pm:418> INFO - Reading 'run.bcf'
+[150] Biber.pm:969> INFO - Using all citekeys in bib section 0
+[164] Biber.pm:4383> INFO - Processing section 0
+[172] Biber.pm:4574> INFO - Looking for bibtex file 'bibliography.bib' for section 0
+[173] bibtex.pm:1713> INFO - LaTeX decoding ...
+[180] bibtex.pm:1518> INFO - Found BibTeX data source 'bibliography.bib'
+[268] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[268] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[268] Biber.pm:4203> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'en-US'
+[268] Biber.pm:4209> INFO - No sort tailoring available for locale 'en-US'
+[281] bbl.pm:654> INFO - Writing 'run.bbl' with encoding 'UTF-8'
+[295] bbl.pm:757> INFO - Output to run.bbl
+[296] Biber.pm:130> WARN - Entry 'utkukose' (bibliography.bib): Invalid format '10.08.2020' of date field 'date' - ignoring
+[296] Biber.pm:130> WARN - Entry 'utkukose' (bibliography.bib): Invalid format '10.08.2020' of date field 'urldate' - ignoring
+[296] Biber.pm:132> INFO - WARNINGS: 2

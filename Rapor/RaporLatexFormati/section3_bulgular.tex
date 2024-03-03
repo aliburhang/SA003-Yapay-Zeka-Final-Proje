@@ -1,0 +1,96 @@
+\newpage
+\section{BULGULAR}
+
+\subsection{Sınıflandırma İşlemleri}
+
+Yapay zeka süreçleri için \textbf{"MLPClassifier"} ve \textbf{"DecisionTreeClassifier"} kullanılmıştır. 
+
+MLPClassifier (Multi-Layer Perceptron Classifier): Sınıflandırma görevleri için kullanılan bir tür sinir ağı algoritmasıdır. Her biri bir sonraki katmana bağlanan birden fazla düğüm katmanından oluşur. Eğitim için "backpropagation" tekniğini kullanır.
+
+DecisionTreeClassifier: Tahmin yapmak için karar ağacını kullanan bir sınıflandırıcı türüdür. Karar ağaçları, verileri özelliklere dayalı olarak alt kümelere böler ve her düğümde bilgi kazanımını en üst düzeye çıkarmak veya kirliliği en aza indirmek için kararlar alır. Yorumlanması kolaydır ve hem sayısal hem de kategorik verileri işleyebilir.
+
+Uygulamada işlemler öncesi "Shuffle (Karıştırma)" yapıldığı için her çalışmasında farklı sonuçlar verecektir. "diabetes\_prediction\_dataset\_edited.csv" veri setinin 100 kez çalıştırılması sonucu ulaşılan sonuçlar şu şekildedir:
+
+\begin{itemize}
+\item \textbf{MLPClassifier doğruluk oranları:}
+\begin{itemize}
+\item Ortalama değer: 0.94595
+\item Standart sapma: 0.00497
+\item En yüksek değer: 0.95536
+\item En düşük değer: 0.93152
+\end{itemize}
+\item \textbf{DecisionTreeClassifier doğruluk oranları:}
+\begin{itemize}
+\item Ortalama değer: 0.95352
+\item Standart sapma: 0.00113
+\item En yüksek değer: 0.95669
+\item En düşük değer: 0.95066
+\end{itemize}
+\end{itemize}
+
+DecisionTreeClassifier kullanımının bu veri setinde daha iyi sonuç verdiği söylenebilir.
+
+\newpage
+\subsection{Regresyon İşlemleri}
+
+Yapay zeka süreçleri için \textbf{"RandomForestRegressor"} ve \textbf{"GradientBoostingRegressor"} kullanılmıştır. 
+
+RandomForestRegressor: Karar ağaçlarına dayalı bir topluluk öğrenme yöntemidir. Eğitim sırasında birden fazla karar ağacı oluşturur ve regresyon görevleri için ayrı ayrı ağaçların ortalama tahminini çıkarır. Büyük veri kümeleriyle iyi çalışır.
+
+GradientBoostingRegressor: Her ağacın bir öncekinin yaptığı hataları düzelttiği karar ağaçlarını sırayla oluşturan bir topluluk öğrenme tekniğidir. Ortalama kare hata gibi bir kayıp fonksiyonunu gradyan inişiyle en aza indirmeyi amaçlar. Hem regresyon hem de sınıflandırma görevleri için etkilidir.
+
+Uygulamada işlemler öncesi "Shuffle (Karıştırma)" yapıldığı için her çalışmasında farklı sonuçlar verecektir. "House\_Price\_Prediction\_challenge\_edited.csv" veri setinin 100 kez çalıştırılması sonucu ulaşılan sonuçlar Tablo \ref{SiniflandirmaSonuclari}'de görülebilir.
+
+\begin{table}
+\caption{Sınıflandırma sonuçları}
+\centering
+\begin{tabular}{c c c c c} 
+\hline 
+\textbf{Analiz tipi} & \textbf{Ortalama d.} & \textbf{Standart s.} & \textbf{En yüksek d.} & \textbf{En düşük d.} \\
+\hline 
+\multicolumn{5}{c}{\textbf{R Square sonuçları}} \\
+\hline 
+RandomForestRegressor & 0.84384 & 0.00390 & 0.85284 & 0.83496 \\
+GradientBoostingRegressor & 0.85108 & 0.00358 & 0.86107 & 0.84320 \\
+\hline
+\multicolumn{5}{c}{\textbf{Root Mean Square Error sonuçları}} \\
+\hline
+RandomForestRegressor & 15.49069 & 0.20394 & 16.05814 & 15.02269 \\
+GradientBoostingRegressor & 15.12754 & 0.18862 & 15.56602 & 14.71059 \\
+\hline
+\multicolumn{5}{c}{\textbf{Mean Absolute Error sonuçları}} \\
+\hline
+RandomForestRegressor & 10.72449 & 0.11507 & 11.08674 & 10.41774 \\
+GradientBoostingRegressor & 10.50539 & 0.10827 & 10.78218 & 10.25409 \\
+\hline
+\end{tabular}
+\label{SiniflandirmaSonuclari}
+\end{table}
+
+GradientBoostingRegressor kullanımının bu veri setinde daha iyi sonuç verdiği söylenebilir.
+
+\newpage
+\subsection{Kümeleme İşlemleri}
+
+Yapay zeka süreçleri için \textbf{"2 kümeli PCA Metodu"} ve \textbf{"10 kümeli PCA Metodu"} kullanılmıştır.
+
+PCA (Principal Component Analysis): Orijinal bilgilerin çoğunu korurken veri kümelerini daha düşük boyutlu bir alana dönüştürerek basitleştirmek için kullanılan bir boyut azaltma tekniğidir. Veri analizi ve makine öğreniminde görselleştirme, gürültü azaltma ve özellik çıkarma için yaygın olarak kullanılır.
+
+Kümeleme işleminde işlemler öncesi "Shuffle (Karıştırma)" yapılmadığı için her çalışmasında aynı sonucu verecektir.
+
+Kümeleme işleminde hedef sütunu olmadığı için şu şekilde bir hata modellemesi yapılmıştır:
+\begin{itemize}
+\item Elde edilen PCA verisi "detransform" edilmiştir.
+\item "Detransform verisi" ile orjinal veri setinin farkının mutlak değeri alınmıştır.
+\item Her bir satır için bu mutlak değerlerin karelerinin toplamının karekökü alınıp veri setinin orjinal haline yeni sütunlar olarak eklenmiştir.
+\item Son durumda her satırda PCA'in 2 ve 10 kümeli hali için hatayı temsil eden yeni iki sütun oluşmuştur.
+\item Bu sütunların ortalaması da bu çalışmada hata olarak tanımlanmıştır.
+\end{itemize}
+
+"Customers\_edited.csv" veri setinin PCA ile kümelenmesi sonrası yapılan hata analizinde karşılaşılan sonuçlar şu şekildedir:
+\begin{itemize}
+\item \textbf{2 kümeli PCA için hata: 2.6309}
+\item \textbf{10 kümeli PCA için hata: 1.1127}
+\end{itemize}
+
+10 kümeli PCA kullanımının bu veri setinde daha iyi sonuç verdiği söylenebilir.

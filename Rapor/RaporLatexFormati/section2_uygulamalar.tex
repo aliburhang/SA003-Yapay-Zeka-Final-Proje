@@ -1,0 +1,87 @@
+\newpage
+\section{UYGULAMALAR}
+
+\subsection{Sınıflandırma İşlemleri}
+
+Bu raporda sınıflandırma işlemleri için  \href{https://www.kaggle.com/datasets/iammustafatz/diabetes-prediction-dataset/data}{Diabetes Prediction Dataset} veriseti kullanılmıştır.
+
+Veri setinin ilk durumu proje dosyaları içinde "diabetes\_prediction\_dataset\_org.csv" ismi ile bulunabilir. Veri seti, ilk durumunda 9 sütundan oluşmaktadır:
+\begin{small}
+\begin{itemize}
+\item gender: Bireyin cinsiyetini ifade eden sütundur.
+\item age: Bireyin yaşını ifade eden sütundur.
+\item hypertension: Atardamarlardaki kan basıncının sürekli olarak yükseldiği tıbbi durumun bireyde olup olmadığını gösteren sütundur.
+\item heart\_disease: Bireyin kalp rahatsızlığına sahip olup olmadığını gösteren sütundur.
+\item smoking\_history: Bireyin sigara içme durumu tarihçesini temsil eden sütundur.
+\item bmi: Bireyin vücut kitle endeksini gösteren sütundur.
+\item HbA1c\_level: Bireyin son 2-3 aydaki ortalama kan şekeri düzeyinin ölçüsünü gösteren sütundur.
+\item blood\_glucose\_level: Belirli bir zamanda kan dolaşımında bulunan glikoz miktarını ifade eden sütundur.
+\item diabetes: Bireyin diyabet olup olmadığını ifade eden sütundur. Hedef değişkendir.
+\end{itemize}
+\end{small}
+
+"diabetes\_prediction\_dataset\_org.csv" isimli veri seti "classification\_data\_prep.py" isimli python dosyasında bulunan süreçlerden geçirilerek, yapay zeka kullanımına hazır hale getirilmiştir. 
+
+Veri hazırlama sürecinde 18 adet boş satır silinmiştir. "Dummy Index" - "Mapping" gibi işlemler kullanılmıştır. Sonuç sütunu ile korelasyonu 5\%'nin altında olan sütunlar PCA ile tek sütun haline çevrilmiştir. Yeni sütunun da korelasyonu 5\%'nin altında kalınca işlem iptal edilmiştir. Son durumda korelasyonu 5\%'nin altında olan bütün sütunlar silinmiştir. Verinin son hali "diabetes\_prediction\_dataset\_edited.csv" olarak dosyalar içine kaydedilmiştir.
+
+Son durumda yapay zeka süreçleri için \textbf{"MLPClassifier"} ve \textbf{"DecisionTreeClassifier"} kullanılmıştır. Bu veri setinde DecisionTreeClassifier bir miktar daha iyi sonuç vermektedir.
+
+Dosyalar içinde bulunan "classification\_fit.py" yapay zeka kullanım süreçlerini, "classification\_run\_file.py" arayüz kullanımını gerçekleştirmektedir.
+
+\newpage
+\subsection{Regresyon İşlemleri}
+
+Bu raporda regresyon işlemleri için  \href{https://www.kaggle.com/datasets/anmolkumar/house-price-prediction-challenge/data}{House Price Prediction Challenge} veriseti kullanılmıştır.
+
+Veri setinin ilk durumu proje dosyaları içinde "House\_Price\_Prediction\_challenge\_org.csv" ismi ile bulunabilir. Veri seti, ilk durumunda 12 sütundan oluşmaktadır:
+\begin{small}
+\begin{itemize}
+\item POSTED\_BY: Mülkün kim tarafından ilana verildiğini gösteren sütundur.
+\item UNDER\_CONSTRUCTION: Mülkün yapım aşamasında olup olmadığını belirten sütundur.
+\item RERA: Mülkün "RERA" onayını temsil eden sütundur.
+\item BHK\_NO.: Mülkün oda sayısını gösteren sütundur.
+\item BHK\_OR\_RK: Mülk tipini ifade eden sütundur.
+\item SQUARE\_FT: Mülkün yüz ölçümünü gösteren sütundur.
+\item READY\_TO\_MOVE: Mülke taşınabilirliği ifade eden sütundur.
+\item RESALE: Mülkün ikinci el olup olmadığını belirten sütundur.
+\item ADDRESS: Mülkün adresini belirten sütundur.
+\item LONGITUDE: Mülkün boylam değerini ifade eden sütundur.
+\item LATITUDE: Mülkün enlem değerini ifade eden sütundur.
+\item TARGET(PRICE\_IN\_LACS): Mülkün fiyatını ifade eden sütundur. Hedef değişkendir.
+\end{itemize}
+\end{small}
+
+"House\_Price\_Prediction\_challenge\_org.csv" isimli veri seti "scoring\_data\_prep.py" isimli python dosyasında bulunan süreçlerden geçirilerek, yapay zeka kullanımına hazır hale getirilmiştir. 
+
+Veri hazırlama sürecinde hedef sütunundaki anomaliler veri setinden çıkarılmıştır. Hedef sütunu, "hedef sütunu - hedef sütununun ortalama değeri" ile değiştirilmiştir. Adres sütunundan şehir ve ilçeler ayıklanmıştır. Veri seti üzerinde "Dummy Index" - "Mapping" - "Target Average" gibi işlemler kullanılmıştır. Son durumda korelasyonu 5\%'nin altında olan sütunlar silinmiştir. Verinin son hali "House\_Price\_Prediction\_challenge\_edited.csv" olarak kaydedilmiştir.
+
+Son durumda yapay zeka süreçleri için \textbf{"RandomForestRegressor"} ve \textbf{"GradientBoostingRegressor"} kullanılmıştır. Bu veri setinde GradientBoostingRegressor bir miktar daha iyi sonuç vermektedir.
+
+Dosyalar içinde bulunan "scoring\_fit.py" yapay zeka kullanım süreçlerini, "scoring\_run\_file.py" arayüz kullanımını gerçekleştirmektedir.
+
+\newpage
+\subsection{Kümeleme İşlemleri}
+
+Bu raporda kümeleme işlemleri için  \href{https://www.kaggle.com/datasets/datascientistanna/customers-dataset/data}{Shop Customer Data} veriseti kullanılmıştır. Bu veri setinin bir hedef değer sütunu bulunmamaktadır.
+
+Veri setinin ilk durumu proje dosyaları içinde "Customers\_org.csv" ismi ile bulunabilir. Veri seti, ilk durumunda 8 sütundan oluşmaktadır:
+\begin{small}
+\begin{itemize}
+\item CustomerID: Müşteri kimlik numarasını ifade eden sütundur.
+\item Gender: Müşteri cinsiyetini ifade eden sütundur.
+\item Age: Müşteri yaşını ifade eden sütundur.
+\item Annual Income (\$): Müşterinin yıllık gelirini ifade eden sütundur.
+\item Spending Score (1-100): Müşterinin harcama skorunu ifade eden sütundur.
+\item Profession: Müşterinin mesleğini ifade eden sütundur.
+\item Work Experience: Müşterinin toplam çalışma yılını ifade eden sütundur.
+\item Family Size: Müşterinin toplam aile bireyi sayısını ifade eden sütundur.
+\end{itemize}
+\end{small}
+
+"Customers\_org.csv" isimli veri seti "clustering\_data\_prep.py" isimli python dosyasında bulunan süreçlerden geçirilerek, yapay zeka kullanımına hazır hale getirilmiştir. 
+
+Veri hazırlama sürecinde yaş ve gelir sütunlarına, kümelendirme sonucu doğruluk oranlarını arttırabilmek için gruplandırma yapılmıştır. Cinsiyet sütunu 1 - 0 olarak "Map"lenmiştir. ID sütunu silinmiştir. Gruplandırılan yaş ve gelir sütunları ile meslek sütununa "Dummy Index" uygulanmıştır. Verinin son hali "Customers\_edited.csv" olarak kaydedilmiştir.
+
+Son durumda yapay zeka süreçleri için \textbf{"2 kümeli PCA Metodu"} ve \textbf{"10 kümeli PCA Metodu"} kullanılmıştır. 10 kümeli PCA Metodu daha iyi sonuç vermektedir.
+
+Dosyalar içinde bulunan "clustering\_fit.py" yapay zeka kullanım süreçlerini, "clustering\_run\_file.py" arayüz kullanımını gerçekleştirmektedir.
